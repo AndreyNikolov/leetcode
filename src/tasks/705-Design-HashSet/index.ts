@@ -1,13 +1,17 @@
 class MyHashSet {
-  hashTable: (number[] | undefined)[];
-  hashModule = Math.pow(10, 4); // 10,000 bucket size
+  private hashTable: (number[] | undefined)[];
+  private hashModule = Math.pow(10, 4); // 10,000 bucket size
 
   constructor() {
     this.hashTable = new Array(this.hashModule).fill(undefined);
   }
 
+  getBucketIndex(key: number): number {
+    return key % this.hashModule;
+  }
+
   add(key: number): void {
-    const index = key % this.hashModule;
+    const index = this.getBucketIndex(key);
     if (this.hashTable[index] === undefined) {
       this.hashTable[index] = [key];
       return;
@@ -20,7 +24,7 @@ class MyHashSet {
   }
 
   remove(key: number): void {
-    const index = key % this.hashModule;
+    const index = this.getBucketIndex(key);
     const curr = this.hashTable[index];
     if (curr === undefined) {
       return;
@@ -36,7 +40,7 @@ class MyHashSet {
   }
 
   contains(key: number): boolean {
-    const index = key % this.hashModule;
+    const index = this.getBucketIndex(key);
     const curr = this.hashTable[index];
     return curr !== undefined && curr.includes(key);
   }
