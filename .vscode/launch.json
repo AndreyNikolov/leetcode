@@ -5,34 +5,19 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "tsx",
       "type": "node",
       "request": "launch",
-
-      // Debug current file in VSCode
+      "name": "Debug Typescript",
+      "skipFiles": ["<node_internals>/**"],
       "program": "${file}",
-
-      /*
-       * Path to tsx binary
-       * Assuming locally installed
-       */
-      "runtimeExecutable": "tsx",
-
-      /*
-       * Open terminal when debugging starts (Optional)
-       * Useful to see console.logs
-       */
+      "runtimeArgs": [
+        "-r",
+        "ts-node/register",
+        "-r",
+        "tsconfig-paths/register"
+      ],
       "console": "integratedTerminal",
-      "internalConsoleOptions": "neverOpen",
-
-      // Files to exclude from debugger (e.g. call stack)
-      "skipFiles": [
-        // Node.js internal core modules
-        "<node_internals>/**",
-
-        // Ignore all dependencies (optional)
-        "${workspaceFolder}/node_modules/**"
-      ]
+      "outFiles": ["${workspaceFolder}/**/*.js"]
     }
   ]
 }

@@ -13,6 +13,7 @@ function findNextGreatElement(el: number, nums2: number[]) {
       break;
     }
   }
+
   return greaterElement;
 }
 
