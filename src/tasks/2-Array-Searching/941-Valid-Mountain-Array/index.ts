@@ -1,3 +1,4 @@
+/* This solution is very hard to read, but due to early returns performs better than the simple solutions
 function validMountainArray(arr: number[]): boolean {
   if (arr.length < 3) return false;
 
@@ -34,4 +35,26 @@ function validMountainArray(arr: number[]): boolean {
   if (downCount === 0) return false;
 
   return true;
+}
+*/
+
+function validMountainArray(arr: number[]): boolean {
+  if (arr.length < 3) return false;
+
+  let i = 0;
+
+  // climb up
+  while (i < arr.length - 1 && arr[i] < arr[i + 1]) {
+    i++;
+  }
+
+  //hit peak
+  if (i === 0 || i === arr.length - 1) return false;
+
+  // climb down
+  while (i < arr.length - 1 && arr[i] > arr[i + 1]) {
+    i++;
+  }
+
+  return i === arr.length - 1;
 }
