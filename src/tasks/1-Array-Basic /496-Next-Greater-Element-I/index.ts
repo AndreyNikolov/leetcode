@@ -45,13 +45,38 @@ function nextGreaterElement(nums1: number[], nums2: number[]): number[] {
     num1Map.set(nums1[i], i);
   }
 
-  for (let j = 0; j < nums2.length; j++) {
-    if (!num1Map.has(nums2[j])) continue;
+  //O(n+m)
+  const stack = [];
 
-    const positionOfJInNums1 = num1Map.get(nums2[j]); // 1
-    const greater = findNextGreaterElement(nums2[j], nums2.slice(j + 1));
-    result[positionOfJInNums1] = greater;
+  for (let j = 0; j < nums2.length; j++) {
+    const curr = nums2[j];
+    // if stack is not empty and we have elements to compare with curr
+    while (stack.length > 0 && stack[stack.length - 1] < curr) {
+      const lower = stack.pop();
+      if (num1Map.has(lower)) {
+        const index = num1Map.get(lower);
+        result[index] = curr;
+      }
+    }
+
+    // else
+    if (num1Map.has(curr)) {
+      stack.push(curr);
+    }
   }
 
   return result;
+
+  /*
+    // O(n*m)
+    for (let j = 0; j<nums2.length; j++) {
+        if (!num1Map.has(nums2[j])) continue;
+
+        const positionOfJInNums1 = num1Map.get(nums2[j]); // 1
+        const greater = findNextGreaterElement(nums2[j], nums2.slice(j+1));
+        result[positionOfJInNums1] = greater;
+    }
+
+    return result;
+    */
 }
