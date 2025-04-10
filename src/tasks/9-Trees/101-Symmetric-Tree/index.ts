@@ -18,17 +18,16 @@ function isSymmetricRec(root: TreeNode): boolean {
 }
 
 function isSymmetric(root: TreeNode | null): boolean {
-  if (!root) return true;
-
-  const stack: [TreeNode | null, TreeNode | null][] = [[root.left, root.right]];
-
-  while (stack.length) {
-    const [left, right] = stack.pop()!;
+  if (!root) return false;
+  let left = root.left;
+  let right = root.right;
+  let queue = [[left, right]];
+  while (queue.length > 0) {
+    let [left, right] = queue.shift()!;
     if (!left && !right) continue;
     if (!left || !right || left.val !== right.val) return false;
 
-    stack.push([left.left, right.right]);
-    stack.push([left.right, right.left]);
+    queue.push([left.right, right.left], [left.left, right.right]);
   }
 
   return true;
