@@ -14,6 +14,25 @@ function hasPathSumDFS(root: TreeNode | null, targetSum: number): boolean {
   return dfs(root, 0);
 }
 
+var hasPathSumDFSMinus = function (
+  root: TreeNode | null,
+  targetSum: number
+): boolean {
+  function dfs(node: TreeNode | null, targetSum: number): boolean {
+    if (!node) return false;
+
+    targetSum -= node.val;
+
+    if (!node.left && !node.right) {
+      return targetSum === 0;
+    }
+
+    return dfs(node.left, targetSum) || dfs(node.right, targetSum);
+  }
+
+  return dfs(root, targetSum);
+};
+
 function hasPathSum(root: TreeNode | null, targetSum: number): boolean {
   if (!root) return false;
   const queue: [TreeNode, number][] = [[root, 0]];
