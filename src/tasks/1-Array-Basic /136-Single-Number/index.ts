@@ -1,5 +1,6 @@
 function singleNumber(nums: number[]): number {
   // base case
+  /*
   if (nums.length === 1) {
     return nums[0];
   }
@@ -16,5 +17,18 @@ function singleNumber(nums: number[]): number {
     }
   }
 
-  return auxArr[0];
+  return auxArr[0];*/
+
+  if (nums.length === 1) return nums[0];
+
+  let uniques = new Set<number>();
+  for (let i = 0; i < nums.length; i++) {
+    if (uniques.has(nums[i])) {
+      uniques.delete(nums[i]);
+    } else {
+      uniques.add(nums[i]);
+    }
+  }
+
+  return [...uniques][0];
 }
