@@ -1,0 +1,18 @@
+function fillCups(amount: number[]): number {
+  let time = 0;
+
+  while (true) {
+    amount.sort((a, b) => b - a);
+
+    if (amount[0] === 0) break;
+
+    if (amount[1] > 0) {
+      amount[1]--;
+    }
+    amount[0]--;
+
+    time++;
+  }
+
+  return time;
+}

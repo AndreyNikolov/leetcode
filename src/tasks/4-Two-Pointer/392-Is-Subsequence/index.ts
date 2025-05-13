@@ -1,4 +1,4 @@
-function isSubsequence(s: string, t: string): boolean {
+function isSubsequence1(s: string, t: string): boolean {
   /* with extra memory
     let jIndex = 0;
 
