@@ -95,4 +95,8 @@ export class MaxHeap<T> {
       i = this.parent(i);
     }
   }
+
+  public getArray(): (T | null)[] {
+    return this.arr;
+  }
 }

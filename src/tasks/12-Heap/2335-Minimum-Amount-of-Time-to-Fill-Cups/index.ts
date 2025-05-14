@@ -16,3 +16,13 @@ function fillCups(amount: number[]): number {
 
   return time;
 }
+
+/*
+ def fillCups(self, amount):
+        maxi = 0
+        total = 0
+        for i in range(len(amount)):
+            total += amount[i]
+            maxi = max(maxi, amount[i])
+        return max(maxi, (total + 1) // 2)
+*/
