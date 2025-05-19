@@ -1,4 +1,4 @@
-function isIsomorphic2(s: string, t: string): boolean {
+function isIsomorphic(s: string, t: string): boolean {
   const charSTMap: Record<string, string> = {};
   const charTSMap: Record<string, string> = {};
 
