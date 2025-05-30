@@ -3,7 +3,7 @@
  * @param {string} chars
  * @return {number}
  */
-function countCharacters(words: string[], chars: string): number {
+function countCharacters2(words: string[], chars: string): number {
   const charArray = new Array(26).fill(0);
   let result = 0;
 
