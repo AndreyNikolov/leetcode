@@ -20,7 +20,7 @@ function checkIfExist(arr: number[]): boolean {
   return false;
 }
 
-function binarySearch(arr: number[], target: number): boolean {
+function binarySearchInt(arr: number[], target: number): boolean {
   let left = 0;
   let right = arr.length - 1;
 
