@@ -1,4 +1,4 @@
-function getMinimumDifferenceBFS(root: TreeNode): number {
+function minDiffInBSTBFS(root: TreeNode): number {
   const traversal = [root.val];
   const queue: TreeNode[] = [];
   if (root.left) {
