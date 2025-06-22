@@ -1,4 +1,4 @@
-function hasPathSumDFS(root: TreeNode | null, targetSum: number): boolean {
+function hasPathSumDFS1(root: TreeNode | null, targetSum: number): boolean {
   function dfs(root: TreeNode | null, currentSum: number): boolean {
     // base case
     if (!root) {

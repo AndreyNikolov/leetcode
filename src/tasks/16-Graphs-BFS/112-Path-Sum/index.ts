@@ -1,4 +1,4 @@
-function hasPathSumDFS(root: TreeNode | null, targetSum: number): boolean {
+function hasPathSumBFS(root: TreeNode | null, targetSum: number): boolean {
   if (!root) return false;
 
   const queue: [TreeNode, number][] = [[root, targetSum - root.val]];
