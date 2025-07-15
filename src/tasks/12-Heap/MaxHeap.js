@@ -55,22 +55,6 @@ class MaxHeap {
     return root;
   }
 
-  increaseKey(i, newVal) {
-    this.arr[i] = newVal;
-    while (i !== 0 && this.arr[this.parent(i)] < this.arr[i]) {
-      [this.arr[i], this.arr[this.parent(i)]] = [
-        this.arr[this.parent(i)],
-        this.arr[i],
-      ];
-      i = this.parent(i);
-    }
-  }
-
-  deleteKey(i) {
-    this.increaseKey(i, Infinity);
-    this.pop();
-  }
-
   push(x) {
     if (this.heapSize === this.maxSize) {
       console.error("Heap overflow! Could not push.");
@@ -89,5 +73,21 @@ class MaxHeap {
       ];
       i = this.parent(i);
     }
+  }
+
+  increaseKey(i, newVal) {
+    this.arr[i] = newVal;
+    while (i !== 0 && this.arr[this.parent(i)] < this.arr[i]) {
+      [this.arr[i], this.arr[this.parent(i)]] = [
+        this.arr[this.parent(i)],
+        this.arr[i],
+      ];
+      i = this.parent(i);
+    }
+  }
+
+  deleteKey(i) {
+    this.increaseKey(i, Infinity);
+    this.pop();
   }
 }

@@ -1,4 +1,4 @@
-function minDepth(root: TreeNode | null): number {
+function minDepthDFS(root: TreeNode | null): number {
   if (!root) return 0;
 
   function dfs(node: TreeNode | null): number {
