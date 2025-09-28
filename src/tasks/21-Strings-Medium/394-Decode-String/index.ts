@@ -1,3 +1,6 @@
+// const isDigitL = (s) => !isNaN(Number(s));
+// const isLetter = (s) => /^[a-z]$/.test(s);
+
 function decodeString(s: string): string {
   const numStack: number[] = [];
   const charStack: string[] = [];
